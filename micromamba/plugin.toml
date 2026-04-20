@@ -1,0 +1,33 @@
+name = "micromamba"
+type = "package-manager"
+
+[platform.linux]
+archs = ["x86_64"]
+exe-path = "micromamba"
+checksum-file = "micromamba-linux-64.sha256"
+download-file = "micromamba-linux-64"
+
+[platform.macos]
+archs = ["x86_64"]
+exe-path = "micromamba"
+checksum-file = "micromamba-osx-64.sha256"
+download-file = "micromamba-osx-64"
+
+[platform.windows]
+archs = ["x86_64"]
+exe-path = "Library/bin/micromamba.exe"
+download-file = "micromamba-win-64.tar.bz2"
+
+[install]
+download-url = "https://github.com/mamba-org/micromamba-releases/releases/download/{versionMajor}.{versionMinor}.{versionPatch}-{versionBuild}/{download_file}"
+checksum-url = "https://github.com/mamba-org/micromamba-releases/releases/download/{versionMajor}.{versionMinor}.{versionPatch}-{versionBuild}/{checksum_file}"
+
+[install.exes.micromamba]
+primary = true
+
+[resolve]
+git-url = "https://github.com/mamba-org/micromamba-releases"
+version-pattern = "^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>[0-9A-Za-z.-]+)$"
+
+[detect]
+version-files = [".micromamba-version"]
