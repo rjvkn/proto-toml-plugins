@@ -1,0 +1,27 @@
+name = "crystal"
+type = "language"
+
+[platform.linux]
+archs = ["x86_64", "aarch64"]
+archive-prefix = "crystal-{version}-1"
+exe-path = "bin/crystal"
+download-file = "crystal-{version}-1-linux-{arch}.tar.gz"
+
+[platform.macos]
+archs = ["x86_64", "aarch64"]
+archive-prefix = "crystal-{version}-1"
+exe-path = "bin/crystal"
+download-file = "crystal-{version}-1-darwin-universal.tar.gz"
+
+[install]
+download-url = "https://github.com/crystal-lang/crystal/releases/download/{version}/{download_file}"
+
+[install.exes.crystal]
+primary = true
+
+[install.exes.shards]
+exe-path = "bin/shards"
+
+[resolve]
+git-url = "https://github.com/crystal-lang/crystal"
+version-pattern = "^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
